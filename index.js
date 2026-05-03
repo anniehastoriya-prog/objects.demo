@@ -50,7 +50,7 @@ export function sortStudents(studentA, studentB) {
  * makeFlag("yellow", "triangle"); // { color: "yellow", icon: "triangle" }
  */
 // we're making a new abject with color and icon keys.
-// using the parameter values as the values for the object.
+// using the parameter values as the values for the object. //followed in class
 export function makeFlag(color, icon) {
   return {
     color: color,
@@ -70,8 +70,10 @@ export function makeFlag(color, icon) {
  * @example
  * increment({value: -5}); // {value: -4}
  */
+
 export function increment(count) {
-  // TODO
+  count.value += 1;
+  return count;
 }
 
 /**
@@ -98,7 +100,9 @@ export function increment(count) {
  *
  */
 export function getTaxicabDistance(from, to) {
-  // TODO
+  const dx = Math.abs(to.x - from.x);
+  const dy = Math.abs(to.y - from.y);
+  return dx + dy;
 }
 
 /**
@@ -113,7 +117,14 @@ export function getTaxicabDistance(from, to) {
  * @example
  * getHerbivores([{name: "Rabbit", isHerbivore: true}]); // [{name: "Rabbit", isHerbivore: true}]
  */
-export function getHerbivores(animals) {}
+// we want the code to return just the herbivores.
+export function getHerbivores(animals) {
+  const herbivores = [];
+  for (const animal of animals) {
+    if (animal.isHerbivore) herbivores.push(animal);
+  }
+  return herbivores;
+}
 
 /**
  * @typedef {{name: string, isCarnivore: boolean}} Animal
@@ -127,6 +138,7 @@ export function getHerbivores(animals) {}
  * @example
  * getCarnivoreNames([{name: "Wolf", isCarnivore: true}]); // ["Wolf"]
  */
+//followed in class
 
 export function getCarnivoreNames(animals) {
   const result = [];
@@ -153,6 +165,7 @@ export function getCarnivoreNames(animals) {
  * @example
  * getTotalCost([{name: "Notebook", quantity: 0, price: 5}]); // 0
  */
+//followed in class
 export function getTotalCost(cart) {
   for (const item of cart) {
     const cost = item.price * item.quantity;
@@ -177,6 +190,7 @@ export function getTotalCost(cart) {
  * @example
  * zip(["x"], ["x"]); // {x: "x"}
  */
+//i want to have an array where each key has a corresponding value.
 export function zip(keys, values) {
   const object = {};
   for (let i = 0; i < keys.length; i++) {
@@ -197,6 +211,7 @@ export function zip(keys, values) {
  * @example
  * countCharacters("aAa"); // {a: 2, A: 1}
  */
+//followed in class
 export function countCharacters(word) {
   const counts = {};
   for (const character of word) {
