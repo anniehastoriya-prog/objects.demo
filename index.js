@@ -10,8 +10,9 @@
  * @example
  * getCohort({cohort: 3476, name: "Charlie"}); // 3476
  */
+
 export function getCohort(student) {
-  // TODO
+  return student["cohort"];
 }
 
 /**
@@ -29,6 +30,8 @@ export function getCohort(student) {
  * @example
  * sortStudents({cohort: 1, name: "Alice"}, {cohort: 2, name: "Alice"}); // {cohort: 1, name: "Alice"}
  */
+
+//
 export function sortStudents(studentA, studentB) {
   // TODO
 }
@@ -46,8 +49,13 @@ export function sortStudents(studentA, studentB) {
  * @example
  * makeFlag("yellow", "triangle"); // { color: "yellow", icon: "triangle" }
  */
+// we're making a new abject with color and icon keys.
+// using the parameter values as the values for the object.
 export function makeFlag(color, icon) {
-  // TODO
+  return {
+    color: color,
+    icon: icon,
+  };
 }
 
 /**
@@ -105,9 +113,7 @@ export function getTaxicabDistance(from, to) {
  * @example
  * getHerbivores([{name: "Rabbit", isHerbivore: true}]); // [{name: "Rabbit", isHerbivore: true}]
  */
-export function getHerbivores(animals) {
-  // TODO
-}
+export function getHerbivores(animals) {}
 
 /**
  * @typedef {{name: string, isCarnivore: boolean}} Animal
@@ -121,8 +127,13 @@ export function getHerbivores(animals) {
  * @example
  * getCarnivoreNames([{name: "Wolf", isCarnivore: true}]); // ["Wolf"]
  */
+
 export function getCarnivoreNames(animals) {
-  // TODO
+  const result = [];
+  for (const animal of animals) {
+    if (animal.isCarnivore) result.push(animal.name);
+  }
+  return result;
 }
 
 /**
@@ -143,7 +154,11 @@ export function getCarnivoreNames(animals) {
  * getTotalCost([{name: "Notebook", quantity: 0, price: 5}]); // 0
  */
 export function getTotalCost(cart) {
-  // TODO
+  for (const item of cart) {
+    const cost = item.price * item.quantity;
+    total += cost;
+  }
+  return total;
 }
 
 /**
@@ -163,7 +178,11 @@ export function getTotalCost(cart) {
  * zip(["x"], ["x"]); // {x: "x"}
  */
 export function zip(keys, values) {
-  // TODO
+  const object = {};
+  for (let i = 0; i < keys.length; i++) {
+    object[keys[i]] = values[i];
+  }
+  return object;
 }
 
 /**
@@ -179,5 +198,13 @@ export function zip(keys, values) {
  * countCharacters("aAa"); // {a: 2, A: 1}
  */
 export function countCharacters(word) {
-  // TODO
+  const counts = {};
+  for (const character of word) {
+    if (!(character in counts)) {
+      counts[character] = 1;
+    } else {
+      counts[character] += 1;
+    }
+  }
+  return counts;
 }
